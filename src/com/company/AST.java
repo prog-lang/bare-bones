@@ -17,9 +17,14 @@ public class AST {
 
     public Code[] code;
 
-    public void analyze(String[] lines, int depth) {
+    public void analyze(/*String[] lines, int depth*/) {
         Pattern statement = Pattern.compile("(clear|incr|decr) \\w+;");
-        Pattern whileLoop = Pattern.compile("(clear|incr|decr) \\w+;");
+        Pattern whileLoop = Pattern.compile("while \\w+ not 0 do;.+end;");
+        /*
+        Matcher m = whileLoop.matcher("while X not 0 do; decr X; end;");
+        boolean b = m.matches();
+         */
+
         // must fill in this.code variable
     }
 
