@@ -1,6 +1,9 @@
 package com.company;
 
+import java.util.*;
 import java.util.regex.*;
+
+import static com.company.Operator.*;
 
 /*
  * Abstract Syntax Tree (AST) is defined as an array of Code. Where Code is an interface type that is implemented
@@ -17,15 +20,42 @@ public class AST {
 
     public Code[] code;
 
-    public void analyze(/*String[] lines, int depth*/) {
+    public void analyze(String[] lines, int depth) throws Exception {
         Pattern statement = Pattern.compile("(clear|incr|decr) \\w+;");
-        Pattern whileLoop = Pattern.compile("while \\w+ not 0 do;.+end;");
+        String whilePatternString = Util.strMul("\t", depth) + "while \\w+ not 0 do;\\s*\\n" +
+                                    Util.strMul("\t", depth + 1) + ".+\n" +
+                                    Util.strMul("\t", depth) + "end;";
+        Pattern whileLoop = Pattern.compile("while \\w+ not 0 do;\\s*\\n     end;");
         /*
         Matcher m = whileLoop.matcher("while X not 0 do; decr X; end;");
         boolean b = m.matches();
          */
 
         // must fill in this.code variable
+    }
+
+    public Statement statementGen(String statementLine) throws Exception {
+        int spaceIndex = statementLine.indexOf(' ');
+        String operatorString = statementLine.substring(0, spaceIndex);
+        String varname = statementLine.substring( spaceIndex + 1, statementLine.length() - 1 );
+        Operator operator;
+        switch (operatorString) {
+            case "clear":
+                operator = CLEAR;
+                break;
+
+            case "incr":
+                operator = INCR;
+                break;
+
+            case "decr":
+                operator = DECR;
+                break;
+
+            default:
+                throw new Exception("Unknown operator found.");
+        }
+        return new Statement(operator, varname);
     }
 
 }

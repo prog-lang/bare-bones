@@ -11,4 +11,9 @@ public class Statement implements Code {
     }
 
     public String type() { return "statement"; }
+    public void print() {
+        System.out.print(operator);
+        System.out.printf(" ");
+        System.out.println(varname);
+    }
 }
