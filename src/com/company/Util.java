@@ -1,16 +1,16 @@
 package com.company;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Util {
 
-    public static String[] readFileAsLines(File file, int max_lines) throws Exception {
-        String[] lines = new String[max_lines];
+    public static ArrayList<String> readFileAsLines(File file) throws Exception {
+        ArrayList<String> lines = new ArrayList<String>();
         Scanner fileReader = new Scanner(file);
-        int i = 0;
         while ( fileReader.hasNextLine() )
-            lines[i++] = fileReader.nextLine();
+            lines.add( fileReader.nextLine() );
         fileReader.close();
         return lines;
     }

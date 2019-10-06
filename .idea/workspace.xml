@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1bbceac3-61c7-4367-b279-ea402c5f671b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/inputs/moderate.bb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BareBones/com/company/AST.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BareBones/com/company/AST.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BareBones/com/company/Operator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BareBones/com/company/Operator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BareBones/com/company/Statement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BareBones/com/company/Statement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inputs/basic.bb" beforeDir="false" afterPath="$PROJECT_DIR$/inputs/basic.bb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/AST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/AST.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Operator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Operator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Statement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Statement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/VM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/VM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/While.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/While.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,6 +34,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1RbJnqVJKQg6IV2BqWeacPG68eW" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -90,7 +93,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

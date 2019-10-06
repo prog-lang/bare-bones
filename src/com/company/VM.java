@@ -8,14 +8,34 @@ import java.util.*;
  */
 public class VM {
 
-    private Map vars = new HashMap();
+    public Map vars = new HashMap();
 
-    public void exec(Code[] code) {
-        // awaits implementation
+    public void exec(ArrayList<Code> code) throws Exception {
+        for (Code instruction: code) {
+            String instructionType = instruction.type();
+            if ( instructionType.equals("statement") || instructionType.equals("while") )
+                this.eval(instruction);
+            else throw new Exception("Unknown code type.");
+        }
     }
 
-    public void eval(Code code) {
-        // awaits implementation
+    public void eval(Code instruction) throws Exception {
+        if ( instruction.type().equals("statement") ) {
+            Statement statement = (Statement)instruction;
+            switch (statement.operator) {
+                case CLEAR:
+                    this.clear(statement.varname);
+                    break;
+                case INCR:
+                    this.incr(statement.varname);
+                    break;
+                case DECR:
+                    this.decr(statement.varname);
+                    break;
+                default:
+                    throw new Exception("Unknown operator in Statement.");
+            }
+        }
     }
 
     /*

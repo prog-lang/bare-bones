@@ -3,7 +3,7 @@ package com.company;
 public class While implements Code {
 
     public String varname;  // variable that triggers the end of while loop
-    public Code[] code;     // see AST.java to learn more
+    public Code[] code;     // see Code.java, Statement.java, While.java, and AST.java to learn more
 
     While(String varname, Code[] code, int codeLength) {
         this.varname = varname;
