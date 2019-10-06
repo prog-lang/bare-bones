@@ -15,13 +15,13 @@ public class VM {
             String instructionType = instruction.type();
             if ( instructionType.equals("statement") || instructionType.equals("while") )
                 this.eval(instruction);
-            else throw new Exception("Unknown code type.");
+            else throw new Exception("VM.exec: Unknown 'Code' type.");
         }
     }
 
     public void eval(Code instruction) throws Exception {
         if ( instruction.type().equals("statement") ) {
-            Statement statement = (Statement)instruction;
+            Statement statement = (Statement)instruction;   // type assertion
             switch (statement.operator) {
                 case CLEAR:
                     this.clear(statement.varname);
@@ -33,16 +33,16 @@ public class VM {
                     this.decr(statement.varname);
                     break;
                 default:
-                    throw new Exception("Unknown operator in Statement.");
+                    throw new Exception("VM.eval: Unknown 'Statement' operator.");
             }
         }
     }
 
     /*
-     * The operators below initialize new variables to 0.
+     * The 'clear' and 'decr' initialize new variables to 0. The 'incr' function initializes them to 1.
      * Also, decr doesn't allow variables to become negative. No exceptions thrown.
-     * Integer overflow can be abused to 'produce' negative variables using incr too many times. This flaw can be cured
-     * later if necessary.
+     * Integer overflow can be abused to produce variables with negative values using 'incr' too many times. This flaw
+     * can be cured later if necessary.
      */
     public void clear(String varname) {
         vars.put(varname, 0);
