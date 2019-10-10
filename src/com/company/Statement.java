@@ -12,9 +12,11 @@ public class Statement implements Code {
 
     public String type() { return "statement"; }
 
-    public void print() {
+    public int size() { return 1; }
+
+    public void print(int depth) {
+        System.out.print( Util.strMul("    ", depth) );
         System.out.print(operator);
-        System.out.print(" ");
-        System.out.println(varname);
+        System.out.println(" " + varname + ";");
     }
 }

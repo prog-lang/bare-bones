@@ -15,7 +15,7 @@ public class VM {
             String instructionType = instruction.type();
             if ( instructionType.equals("statement") || instructionType.equals("while") )
                 this.eval(instruction);
-            else throw new Exception("VM.exec: Unknown 'Code' type.");
+            else throw new Exception("Unknown 'Code' type.");
         }
     }
 
@@ -33,9 +33,13 @@ public class VM {
                     this.decr(statement.varname);
                     break;
                 default:
-                    throw new Exception("VM.eval: Unknown 'Statement' operator.");
+                    throw new Exception("Unknown 'Statement' operator.");
             }
-        }
+        } else if ( instruction.type().equals("while") ) {
+            While whileLoop = (While)instruction;
+            while ( !assertEquals(whileLoop.varname, 0) )
+                this.exec(whileLoop.code);
+        } else throw new Exception("VM encountered instruction of unknown type.");
     }
 
     /*
@@ -60,6 +64,10 @@ public class VM {
                 varname,
                 ( !vars.containsKey(varname) || (int)vars.get(varname) == 0 ) ? 0 : (int)vars.get(varname) - 1
         );
+    }
+
+    public boolean assertEquals(String varname, int value) {
+        return (int)vars.get(varname) == value;
     }
 
 }

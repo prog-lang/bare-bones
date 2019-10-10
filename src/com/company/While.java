@@ -14,4 +14,18 @@ public class While implements Code {
 
     public String type() { return "while"; }
 
+    public int size() {
+        int sz = 2;
+        for (Code c: this.code)
+            sz += c.size();
+        return sz;
+    }
+
+    public void print(int depth) {
+        System.out.println( Util.strMul("    ", depth) + "while " + varname + " not 0 do;");
+        for (Code c: this.code)
+            c.print(depth + 1);
+        System.out.println( Util.strMul("    ", depth) + "end;");
+    }
+
 }
