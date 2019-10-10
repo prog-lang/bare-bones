@@ -2,24 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1bbceac3-61c7-4367-b279-ea402c5f671b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/inputs/depthTest.bb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inputs/hard.bb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inputs/basic.bb" beforeDir="false" afterPath="$PROJECT_DIR$/inputs/basic.bb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inputs/moderate.bb" beforeDir="false" afterPath="$PROJECT_DIR$/inputs/moderate.bb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BareBones/com/company/AST.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BareBones/com/company/AST.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BareBones/com/company/Code.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BareBones/com/company/Code.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BareBones/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BareBones/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BareBones/com/company/Statement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BareBones/com/company/Statement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BareBones/com/company/Util.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BareBones/com/company/Util.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BareBones/com/company/VM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BareBones/com/company/VM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BareBones/com/company/While.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BareBones/com/company/While.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/AST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/AST.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Code.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Code.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Statement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Statement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/VM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/VM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/While.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/While.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
