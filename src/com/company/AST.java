@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.regex.*;
 
 import static com.company.Operator.*;
+import static com.company.OperatorMap.*;
 
 /*
  * Abstract Syntax Tree (AST) is defined as an array of 'Code'. Where 'Code' is an interface type that is implemented
@@ -20,7 +21,7 @@ public class AST {
 
     public static ArrayList<Code> analyze(ArrayList<String> lines, int depth) throws Exception {
         //System.out.println("analyze called");
-        String statementExpression = "\\s*(clear|incr|decr) \\w+;\\s*";
+        String statementExpression = "\\s*(clear|incr|decr|input|print|inputa|printa) \\w+;\\s*";
         String whileHeaderExpression = "\\s*while \\w+ not 0 do;\\s*";
         Pattern statement = Pattern.compile(statementExpression);
         Pattern whileLoopHeader = Pattern.compile(whileHeaderExpression);
@@ -107,19 +108,9 @@ public class AST {
         String operatorString = statementLine.substring(0, spaceIndex);
         String varname = statementLine.substring( spaceIndex + 1, statementLine.length() - 1 );
         Operator operator;
-        switch (operatorString) {
-            case "clear":
-                operator = CLEAR;
-                break;
-            case "incr":
-                operator = INCR;
-                break;
-            case "decr":
-                operator = DECR;
-                break;
-            default:
-                throw new Exception("Unknown operator found while generating a 'Statement'.");
-        }
+        if ( operatorMap.containsKey(operatorString) )
+            operator = operatorMap.get(operatorString);
+        else throw new Exception("Unknown operator encountered.");
         return new Statement(operator, varname);
     }
 

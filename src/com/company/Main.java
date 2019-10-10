@@ -3,13 +3,16 @@ package com.company;
 import java.io.File;
 import java.util.ArrayList;
 
+import static com.company.OperatorMap.*;
+
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        //File inputFile = new File("/home/sharpvik/Projects/java/BareBones/inputs/hard.bb");
+        //File inputFile = new File("/home/sharpvik/Projects/java/BareBones/inputs/moderate.bb");
         File inputFile = new File(args[0]);
         ArrayList<String> lines = Util.readFileAsLines(inputFile);
 
+        new OperatorMap();
         ArrayList<Code> ast = AST.analyze(lines, 0);  // Syntactic Analyzer to produce Abstract Syntax Tree (AST)
 
         //for (Code c: ast)

@@ -1,5 +1,6 @@
 package com.company;
 
 public enum Operator {
-    CLEAR, DECR, INCR
+    CLEAR, DECR, INCR,
+    INPUT, PRINT, INPUTA, PRINTA
 }
