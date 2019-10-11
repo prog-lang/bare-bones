@@ -9,6 +9,7 @@ import java.util.*;
 public class VM {
 
     public Map vars = new HashMap();
+    public Scanner stdin = new Scanner(System.in);
 
     public void exec(ArrayList<Code> code) throws Exception {
         for (Code instruction: code) {
@@ -68,6 +69,19 @@ public class VM {
 
     public boolean assertEquals(String varname, int value) {
         return (int)vars.get(varname) == value;
+    }
+
+    public void input(String varname) {
+        vars.put(
+                varname,
+                stdin.nextInt()
+        );
+    }
+
+    public void print(String varname) throws Exception {
+        if ( vars.containsKey(varname) )
+            System.out.println( vars.get(varname) );
+        else throw new Exception("Cannot find varname to print.");
     }
 
 }
