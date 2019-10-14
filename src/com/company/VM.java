@@ -8,7 +8,7 @@ import java.util.*;
  */
 public class VM {
 
-    public Map vars = new HashMap();
+    public Map<String, Integer> vars = new HashMap<String, Integer>();
     public Scanner stdin = new Scanner(System.in);
 
     public void exec(ArrayList<Code> code) throws Exception {
@@ -20,68 +20,69 @@ public class VM {
         }
     }
 
-    public void eval(Code instruction) throws Exception {
-        if ( instruction.type().equals("statement") ) {
-            Statement statement = (Statement)instruction;   // type assertion
-            switch (statement.operator) {
-                case CLEAR:
-                    this.clear(statement.varname);
-                    break;
-                case INCR:
-                    this.incr(statement.varname);
-                    break;
-                case DECR:
-                    this.decr(statement.varname);
-                    break;
-                default:
-                    throw new Exception("Unknown 'Statement' operator.");
-            }
-        } else if ( instruction.type().equals("while") ) {
-            While whileLoop = (While)instruction;
-            while ( !assertEquals(whileLoop.varname, 0) )
-                this.exec(whileLoop.code);
-        } else throw new Exception("VM encountered instruction of unknown type.");
-    }
-
     /*
      * The 'clear' and 'decr' initialize new variables to 0. The 'incr' function initializes them to 1.
      * Also, decr doesn't allow variables to become negative. No exceptions thrown.
      * Integer overflow can be abused to produce variables with negative values using 'incr' too many times. This flaw
      * can be cured later if necessary.
      */
-    public void clear(String varname) {
-        vars.put(varname, 0);
-    }
+    public void eval(Code instruction) throws Exception {
+        if ( instruction.type().equals("statement") ) {
+            Statement statement = (Statement)instruction;   // type assertion
+            switch (statement.operator) {
+                case CLEAR:
+                    vars.put(statement.varname, 0);
+                    break;
 
-    public void incr(String varname) {
-        vars.put(
-                varname,
-                ( !vars.containsKey(varname) ) ? 1 : (int)vars.get(varname) + 1
-        );
-    }
+                case INCR:
+                    vars.put(
+                            statement.varname,
+                            ( !vars.containsKey(statement.varname) ) ? 1 : (int)vars.get(statement.varname) + 1
+                    );
+                    break;
 
-    public void decr(String varname) {
-        vars.put(
-                varname,
-                ( !vars.containsKey(varname) || (int)vars.get(varname) == 0 ) ? 0 : (int)vars.get(varname) - 1
-        );
+                case DECR:
+                    vars.put(
+                            statement.varname,
+                            ( !vars.containsKey(statement.varname) || (int)vars.get(statement.varname) == 0 ) ?
+                                    0 : (int)vars.get(statement.varname) - 1
+                    );
+                    break;
+
+                case INPUT:
+                    System.out.print("int> ");
+                    vars.put( statement.varname, stdin.nextInt() );
+                    break;
+
+                case PRINT:
+                    if ( vars.containsKey(statement.varname) )
+                        System.out.println( vars.get(statement.varname) );
+                    else throw new Exception("Cannot find varname to print.");
+                    break;
+
+                case INPUTA:
+                    System.out.print("char> ");
+                    vars.put( statement.varname, (Integer)System.in.read() );
+                    break;
+
+                case PRINTA:
+                    if ( vars.containsKey(statement.varname) )
+                        System.out.print( (char)vars.get(statement.varname).byteValue() );
+                    else throw new Exception("Cannot find varname to print.");
+                    break;
+
+                default:
+                    throw new Exception("Unknown 'Statement' operator.");
+            }
+        } else if ( instruction.type().equals("while") ) {
+            While whileLoop = (While)instruction;   // type assertion
+            while ( !assertEquals(whileLoop.varname, 0) )
+                this.exec(whileLoop.code);
+        } else throw new Exception("Instruction of unknown type.");
     }
 
     public boolean assertEquals(String varname, int value) {
         return (int)vars.get(varname) == value;
-    }
-
-    public void input(String varname) {
-        vars.put(
-                varname,
-                stdin.nextInt()
-        );
-    }
-
-    public void print(String varname) throws Exception {
-        if ( vars.containsKey(varname) )
-            System.out.println( vars.get(varname) );
-        else throw new Exception("Cannot find varname to print.");
     }
 
 }
