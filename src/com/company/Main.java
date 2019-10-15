@@ -18,7 +18,8 @@ public class Main {
 
         VM vm = new VM();                                    // Virtual Machine to use AST and produce relevant output
         vm.exec(ast);
-        System.out.println(vm.vars);
+
+        //System.out.println(vm.vars);
     }
 
 }
